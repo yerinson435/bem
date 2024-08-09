@@ -1,0 +1,425 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --border-color: #ccc;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --naruto-bg-color: #f0f0f0;
+  --button-color: #4CAF50;
+  --button-hover-color: red;
+  --button-text-hover-color: #fff; 
+  --action-btn-color: #008CBA;
+  --action-btn-hover-color: #007BB5;
+  --info-box-bg-color: #ffeb3b;
+  --info-box-button-color: #ff9800;
+  --info-box-button-hover-color: #fb8c00;
+  --alert-bg-color: #f44336;
+  --alert-button-color: #2196F3;
+  --alert-button-hover-color: #1976D2;
+  --text-color-primary: #333;
+  --text-color-secondary: #666;
+  --closebtn-color: white;
+  --closebtn-hover-color: black;
+  --highlight-color: rgba(255, 215, 0, 0.5); 
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.componente {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.naruto {
+  background-color: var(--naruto-bg-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+.naruto img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.naruto h2 {
+  color: var(--text-color-primary);
+  margin: 10px 0;
+}
+
+.naruto p {
+  color: var(--text-color-secondary);
+  margin: 10px 0;
+}
+
+.naruto button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s; 
+}
+
+.naruto button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--button-text-hover-color); 
+  transform: scale(1.1); 
+}
+
+.boton {
+  background-color: var(--action-btn-color);
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.boton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgb(141, 0, 0), rgba(235, 212, 212, 0.877) 70%);
+  transform: translate(-50%, -50%);
+  transition: transform 0.7s, opacity 0.7s;
+  z-index: -1;
+}
+
+.boton:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.5;
+}
+
+.jutsu {
+  background-color: var(--info-box-bg-color);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.jutsu img {
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.jutsu h3 {
+  color: var(--text-color-primary);
+  margin: 10px 0;
+}
+
+.jutsu p {
+  color: var(--text-color-secondary);
+  margin: 10px 0;
+}
+
+.jutsu button {
+  background-color: var(--info-box-button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, color 0.3s; 
+}
+
+.jutsu button:hover {
+  background-color: var(--info-box-button-hover-color);
+  color: var(--button-text-hover-color); 
+  transform: translateY(-5px); 
+}
+
+.alert {
+  padding: 20px;
+  background-color: var(--alert-bg-color);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.alert .mision {
+  margin-left: 15px;
+  color: var(--closebtn-color);
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.alert .mision:hover {
+  color: var(--closebtn-hover-color);
+}
+
+.alert-btn {
+  background-color: var(--alert-button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s; 
+}
+
+.alert-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, var(--highlight-color), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s;
+  z-index: -1;
+}
+
+.alert-btn:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.alert-btn:hover {
+  box-shadow: 0 0 15px var(--highlight-color); 
+}
+
+.alert img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* --------------------------------------------- */
+
+.seleccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.seleccion .item {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+.seleccion .header {
+  font-weight: bold;
+  padding: 10px;
+  color: var(--text-color-primary);
+}
+
+.seleccion .content {
+  display: none;
+  padding: 10px;
+  color: var(--text-color-secondary);
+}
+
+input[type="checkbox"]:checked + .header + .content {
+  display: block;
+}
+
+.item1:hover {
+  background-color: #FFD700; 
+  color: #000; 
+}
+
+.item2:hover {
+  background-color: #FF4500; 
+  color: #fff; 
+}
+
+.item3:hover {
+  background-color: #32CD32; 
+  color: #fff; 
+  transform: scale(1.05);
+}
+
+.item4:hover {
+  background-color: #1E90FF; 
+  color: #fff; 
+  transform: rotate(5deg);
+}
+
+.seleccion .item.active .content {
+  display: block;
+}
+
+/* -------------------------------------------------- */
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 250px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: var(--border-radius);
+  margin-bottom: 15px;
+}
+
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05); 
+}
+
+
+.card.luffy:hover {
+  background-color: #ff00008a; 
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); 
+}
+
+.card.luffy h3 {
+  color: #000000; 
+}
+
+.card.zoro:hover {
+  background-color: #00ff0088;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); 
+}
+
+.card.zoro h3 {
+  color: #000000; 
+}
+
+.card.nami:hover {
+  background-color: #0000ff91; 
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
+}
+
+.card.nami h3 {
+  color: #000000;
+}
+
+.card.chopper:hover {
+  background-color: #d2b48c85; 
+  box-shadow: 0 0 15px rgba(210, 180, 140, 0.5); 
+}
+
+.card.chopper h3 {
+  color: #000; 
+}
+
+/* ----------------------------------------------------*/
+.componente-cuatro {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.cuadro {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 23%; 
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.cuadro h3 {
+  margin-bottom: 10px;
+  color: var(--text-color-primary);
+}
+
+.cuadro p {
+  color: var(--text-color-secondary);
+  margin-bottom: 10px;
+}
+
+.cuadro button {
+  background-color: var(--action-btn-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.cuadro button:hover {
+  background-color: var(--action-btn-hover-color);
+  transform: scale(1.05);
+}
+
+.cuadro.info {
+  background-color: #e0f7fa; 
+}
+
+.cuadro.estadisticas {
+  background-color: #c8e6c9; 
+}
+
+.cuadro.noticias {
+  background-color: #fff3e0; 
+}
+
+.cuadro.contacto {
+  background-color: #fbe9e7; 
+}
